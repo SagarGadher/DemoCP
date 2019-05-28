@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>Introduction</title>
+        <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+</head>
+
+<body class="AllBody">
+        <!-- <div class="MainTopic">
+                Intoduction
+        </div> -->
+        <p class="ParaDetail">
+                C is a general-purpose, high-level language that was originally developed by Dennis M. Ritchie to
+                develop the UNIX operating system at Bell Labs. C was originally first implemented on the DEC PDP-11
+                computer in 1972.
+
+                In 1978, Brian Kernighan and Dennis Ritchie produced the first publicly available description of C, now
+                known as the K&R standard.
+
+                The UNIX operating system, the C compiler, and essentially all UNIX application programs have been
+                written in C. C has now become a widely used professional
+                language for various reasons :
+        </p>
+        <pre class="KeyPointScroll">
+                -Easy to learn
+                -Structured language
+                -It produces efficient programs
+                -It can handle low-level activities
+                -It can be compiled on a variety of computer platforms
+        </pre>
+        <div class="SubTopic">
+                > Facts About C
+        </div>
+        <p class="KeyPoint">
+                C was invented to write an operating system called UNIX.</br></br>
+                C is a successor of B language which was introduced around the early 1970s.</br></br>
+                The language was formalized in 1988 by the American National Standard Institute (ANSI).</br></br>
+                The UNIX OS was totally written in C.</br></br>
+                Today C is the most widely used and popular System Programming Language.</br></br>
+                Most of the state-of-the-art software have been implemented using C.</br></br>
+                Today's most popular Linux OS and RDBMS MySQL have been written in C.</br></br>
+        </p>
+        <div class="SubTopic">
+                >Why use C?
+        </div>
+        <p class="ParaDetail">
+                C was initially used for system development work, particularly the programs that make-up the operating
+                system. C was adopted as a system development language because it produces code that runs nearly as
+                fast as the code written in assembly language. Some examples of the use of C might be:
+        </p>
+        <p class="KeyPoint">
+                Operating Systems<br /><br />
+                Language Compilers<br><br />
+                Assemblers<br /><br />
+                Text Editors<br /><br />
+                Print Spoolers<br><br />
+                Network Drivers<br /><br />
+                Modern Programs<br /><br />
+                Databases<br /><br />
+                Language Interpreters<br /><br />
+                Utilities<br /><br />
+
+        </p>
+        <pre class="CodeBlock">
+                <code>
+imporret java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.sql.*;
+
+class Frame extends JFrame implements ActionListener
+re{
+      JTextField jt1,jt2;
+      JButton i_jb,u_jb,d_jb,v_jb;
+      JLabel jl;
+      String q,name;
+      int id;
+
+      Connection con;
+      PreparedStatement pstmt;
+      Statement stmt;
+
+      Frame(){
+
+              Container c = getContentPane();
+              FlowLayout fl = new FlowLayout();
+              c.setLayout(fl);
+
+              jt1 = new JTextField(10);
+              jt2 = new JTextField(10);
+              i_jb = new JButton("Insert");
+              u_jb = new JButton("Upadat");
+              d_jb = new JButton("Delete");
+              v_jb = new JButton("View");
+              jl = new JLabel("_________________");
+
+              c.add(jt1);
+              c.add(jt2);
+              c.add(i_jb);
+              c.add(u_jb);
+              c.add(d_jb);
+              c.add(v_jb);
+              c.add(jl);
+
+              i_jb.addActionListener(this);
+              u_jb.addActionListener(this);
+              d_jb.addActionListener(this);
+              v_jb.addActionListener(this);
+      }
+
+      public void actionPerformed(ActionEvent ae){
+              try
+              {
+              Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+              String path = "D:/SJ/student.accdb";
+              String URL = "jdbc:ucanaccess://" + path;
+              con = DriverManager.getConnection(URL);
+
+              if(ae.getActionCommand() == i_jb.getText()){
+                                                        id = Integer.parseInt(jt1.getText());
+                                                        name = jt2.getText();
+                                                        // using simmple statement insert
+                                                        /*
+                                                        q = "insert into std1 VALUES ('"+id+"','"+name+"')";
+                                                        stmt = con.createStatement();
+                                                        stmt.execute(q);
+                                                        jl.setText("Data Inserted");
+                                                        */
+                                                        //using prepare statment insert
+                                                        q = "insert into std1 VALUES (?,?);";
+                                                        pstmt = con.prepareStatement(q);
+                                                        pstmt.setInt(1,id);
+                                                        pstmt.setString(2,name);
+                                                        pstmt.execute();
+                                                        jl.setText("Data Inserted");
+               }
+              if(ae.getActionCommand() == u_jb.getText()){
+                                                        id = Integer.parseInt(jt1.getText());
+                                                        name = jt2.getText();
+                                                        // using simmple statement insert
+                                                        /*
+                                                        q = "update std1 set s_name = '"+name+"' where s_id ='"+id+"';";
+                                                        stmt = con.createStatement();
+                                                        stmt.execute(q);
+                                                        jl.setText("Data Updated");
+                                                        */
+                                                        //using prepare statment insert
+                                                        q = "update std1 set s_name = ? where s_id = ?";
+                                                        pstmt = con.prepareStatement(q);
+                                                        pstmt.setString(1,name);
+                                                        pstmt.setInt(2,id);
+                                                        pstmt.execute();
+                                                        jl.setText("Data Updated");
+               }
+              if(ae.getActionCommand() == d_jb.getText()){
+                                                        id = Integer.parseInt(jt1.getText());
+                                                        // using simmple statement insert
+                                                        /*
+                                                        q = "delete from std1 where s_id = '"+id+"';";
+                                                        stmt = con.createStatement();
+                                                        stmt.execute(q);
+                                                        jl.setText("Data Deleted");
+                                                        */
+                                                        //using prepare statment insert
+                                                        q = "delete from std1 where s_id = ?;";
+                                                        pstmt = con.prepareStatement(q);
+                                                        pstmt.setInt(1,id);
+                                                        pstmt.execute();
+                                                        jl.setText("Data Deleted");
+               }
+              if(ae.getActionCommand() == v_jb.getText()){
+                                                        // using simmple statement insert
+                                                        /*
+                                                        q = "select * from std1";
+                                                        stmt = con.createStatement();
+                                                        ResultSet rs stmt.executeQuery(q);
+                                                        while(rs.next()){
+                                                                         String s1 = rs.getString(s_name);
+                                                                         System.out.println(s1);
+                                                        }
+                                                        jl.setText("Data Show in Terminal");
+                                                        */
+                                                        //using prepare statment insert
+                                                        q = "select * from std1;";
+                                                        pstmt = con.prepareStatement(q);
+                                                        ResultSet rs = pstmt.executeQuery();
+                                                        while(rs.next()){
+                                                                         String s1 = rs.getString("s_name");
+                                                                         System.out.println(s1);
+                                                        }
+                                                        jl.setText("Data Show in Terminal");
+               }
+              }
+              catch(Exception e){
+                              jl.setText(e.getMessage());
+              }
+
+     }
+}
+class JAccessDemo1{
+      public static void main(String a[]){
+             Frame f = new Frame();
+             f.setVisible(true);
+             f.pack();
+             f.setDefaultCloseOperation(3);
+      }
+}
+                </code>
+        </pre>
+</body>
+
+</html>

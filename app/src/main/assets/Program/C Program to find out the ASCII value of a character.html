@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C Program to find out the ASCII value of a character</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+int main()
+{
+    char ch;
+    printf("Enter any character:");
+
+    /* Reads the entered character and stores it
+        * into the char variable ch
+        */
+    scanf("%c", &ch);
+
+    /* Using the format specifiers we can get the ASCII code
+        * of a character. When we use %d format specifier for a
+        * char variable then it displays the ASCII value of a char
+        */
+    printf("ASCII value of character %c is: %d", ch, ch);
+    return 0;
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter any character:Q
+ASCII value of character Q is: 81
+            </code>
+        </pre>
+  </body>
+</html>

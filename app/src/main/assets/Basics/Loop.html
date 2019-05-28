@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loop</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <!-- <div class="MainTopic">Loop</div> -->
+    <p class="ParaDetail">
+      You may encounter situations, when a block of code needs to be executed
+      several number of times. In general, statements are executed sequentially:
+      The first statement in a function is executed first, followed by the
+      second, and so on<br />
+      Programming languages provide various control structures that allow for
+      more complicated execution paths.<br />
+      A loop statement allows us to execute a statement or group of statements
+      multiple times. Given below is the general form of a loop statement in
+      most of the programming languages:
+    </p>
+    <img src="Images/loop_architecture.jpg" />
+    <p class="ParaDetail">
+      C programming language provides the following types of loops to handle
+      looping requirements.
+    </p>
+    <table>
+      <tr>
+        <th>Sr.No.</th>
+        <th>Loop Type</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>while loop</td>
+        <td>
+          Repeats a statement or group of statements while a given condition is
+          true. It tests the condition before executing the loop body.
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>for loop</td>
+        <td>
+          Executes a sequence of statements multiple times and abbreviates the
+          code that manages the loop variable.
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>do...while loop</td>
+        <td>
+          It is more like a while statement, except that it tests the condition
+          at the end of the loop body.
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>nested loops</td>
+        <td>
+          You can use one or more loops inside any other while, for, or
+          do..while loop.
+        </td>
+      </tr>
+    </table>
+
+    <div class="SubTopic">Loop Control Statements</div>
+    <p class="ParaDetail">
+      Loop control statements change execution from its normal sequence. When
+      execution leaves a scope, all automatic objects that were created in that
+      scope are destroyed.<br /><br />
+      C supports the following control statements.
+    </p>
+    <table>
+      <tr>
+        <th>Sr.No.</th>
+        <th>Control Statement</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>break statement</td>
+        <td>
+          Terminates the loop or switch statement and transfers execution to the
+          statement immediately following the loop or switch.
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>continue statement</td>
+        <td>
+          Causes the loop to skip the remainder of its body and immediately
+          retest its condition prior to reiterating.
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>goto statement</td>
+        <td>Transfers control to the labeled statement.</td>
+      </tr>
+    </table>
+
+    <div class="SubTopic">The Infinite Loop</div>
+    <p class="ParaDetail">
+      A loop becomes an infinite loop if a condition never becomes false. The
+      for loop is traditionally used for this purpose. Since none of the three
+      expressions that form the 'for' loop are required, you can make an endless
+      loop by leaving the conditional expression empty.
+    </p>
+    <pre class="CodeBlock">
+		<code>
+#include <stdio.h> 
+int main () {
+
+    for( ; ; ) {
+        printf("This loop will run forever.\n");
+    }
+
+    return 0;
+}
+		</code>
+</pre>
+    <p class="ParaDetail">When the conditional expression is absent, it is assumed to be true. You may have an initialization and increment expression, but C programmers more commonly use the for(;;) construct to signify an infinite loop.<br/>
+            <strong>NOTE - You can terminate an infinite loop by pressing Ctrl + C keys.</strong></p>
+  </body>
+</html>

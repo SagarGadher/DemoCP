@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C program to swap two numbers</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+int main()
+{
+  int x, y, t;
+ 
+  printf("Enter two integers\n");
+  scanf("%d%d", &x, &y);
+ 
+  printf("Before Swapping\nFirst integer = %d\nSecond integer = %d\n", x, y);
+ 
+  t = x;
+  x = y;
+  y = t;
+ 
+  printf("After Swapping\nFirst integer = %d\nSecond integer = %d\n", x, y);
+ 
+  return 0;
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter two integers
+23
+45
+Before Swapping
+First integer = 23
+Second integer = 45
+After Swapping
+First integer = 45
+Second integer = 23
+            </code>
+        </pre>
+  </body>
+</html>

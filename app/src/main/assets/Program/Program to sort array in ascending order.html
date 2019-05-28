@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Program to sort array in ascending order</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+void sort_numbers_ascending(int number[], int count)
+{
+   int temp, i, j, k;
+   for (j = 0; j < count; ++j)
+   {
+      for (k = j + 1; k < count; ++k)
+      {
+         if (number[j] > number[k])
+         {
+            temp = number[j];
+            number[j] = number[k];
+            number[k] = temp;
+         }
+      }
+   }
+   printf("Numbers in ascending order:\n");
+   for (i = 0; i < count; ++i)
+      printf("%d\n", number[i]);
+}
+void main()
+{
+   int i, count, number[20];
+ 
+   printf("How many numbers you are gonna enter:");
+   scanf("%d", &count);
+   printf("\nEnter the numbers one by one:");
+   
+   for (i = 0; i < count; ++i)
+      scanf("%d", &number[i]);
+ 
+   sort_numbers_ascending(number, count);
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+How many numbers you are gonna enter:
+
+Enter the numbers one by one:   
+1 45 7 80 9
+
+Numbers in ascending order:
+1
+7
+9
+45
+80
+            </code>
+        </pre>
+  </body>
+</html>

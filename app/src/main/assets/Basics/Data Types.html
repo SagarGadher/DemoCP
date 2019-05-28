@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Types</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <!-- <div class="MainTopic">Data Type</div> -->
+    <p class="ParaDetail">
+      Data types in c refer to an extensive system used for declaring variables
+      or functions of different types. The type of a variable determines how
+      much space it occupies in storage and how the bit pattern stored is
+      interpreted.<br />
+      The types in C can be classified as follows:
+    </p>
+    <table>
+      <tr>
+        <th>Sr.No.</th>
+        <th>Types</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Basic Type</td>
+        <td>
+          They are arithmetic types and are further classified into: (a) integer
+          types and (b) floating-point types.
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Enumerated Type</td>
+        <td>
+          They are again arithmetic types and they are used to define variables
+          that can only assign certain discrete integer values throughout the
+          program.
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>The type void</td>
+        <td>The type specifier void indicates that no value is available.</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Derived types</td>
+        <td>
+          They include (a) Pointer types, (b) Array types, (c) Structure types,
+          (d) Union types and (e) Function types.
+        </td>
+      </tr>
+    </table>
+
+    <p class="ParaDetail">
+      The array types and structure types are referred collectively as the
+      aggregate types. The type of a function specifies the type of the
+      function's return value. We will see the basic types in the following
+      section, where as other types will be covered in the upcoming chapters.
+    </p>
+    <div class="SubTopic">Integer Types</div>
+    <p class="ParaDetail">
+      The following table provides the details of standard integer types with
+      their storage sizes and value ranges:
+    </p>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Storage Size</th>
+        <th>Value Range</th>
+      </tr>
+      <tr>
+        <td>char</td>
+        <td>1 byte</td>
+        <td>-128 to 127 or 0 to 255</td>
+      </tr>
+      <tr>
+        <td>unsigned char</td>
+        <td>1 byte</td>
+        <td>0 to 255</td>
+      </tr>
+      <tr>
+        <td>signed char</td>
+        <td>1 byte</td>
+        <td>-128 to 127</td>
+      </tr>
+      <tr>
+        <td>int</td>
+        <td>2 or 4 bytes</td>
+        <td>-32,768 to 32,767 or -2,147,483,648 to 2,147,483,647-128 to 127</td>
+      </tr>
+      <tr>
+        <td>unsigned int</td>
+        <td>2 or 4 bytes</td>
+        <td>0 to 65,535 or 0 to 4,294,967,295</td>
+      </tr>
+      <tr>
+        <td>short</td>
+        <td>2 bytes</td>
+        <td>-32,768 to 32,767</td>
+      </tr>
+      <tr>
+        <td>unsigned short</td>
+        <td>2 bytes</td>
+        <td>0 to 65,535</td>
+      </tr>
+      <tr>
+        <td>long</td>
+        <td>4 bytes</td>
+        <td>-2,147,483,648 to 2,147,483,647</td>
+      </tr>
+      <tr>
+        <td>unsigned long</td>
+        <td>4 bytes</td>
+        <td>0 to 4,294,967,295</td>
+      </tr>
+    </table>
+
+    <p class="ParaDetail">
+      To get the exact size of a type or a variable on a particular platform,
+      you can use the sizeof operator. The expressions sizeof(type) yields the
+      storage size of the object or type in bytes. Given below is an example to
+      get the size of int type on any machine:
+    </p>
+    <pre class="CodeBlock">
+      <code>
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    printf("Storage size for int : %d \n", sizeof(int));
+    
+    return 0;
+}
+      </code>
+    </pre>
+    <p class="ParaDetail">
+      When you compile and execute the above program, it produces the following result on Linux:
+    </p>
+    <pre class="CodeBlock">
+      <code>
+Storage size for int : 4
+      </code>
+    </pre>
+    <div class="SubTopic">
+      Floating-Point Types
+    </div>
+    <p class="ParaDetail">
+      The following table provide the details of standard floating-point types with storage sizes and value ranges and their precision:
+    </p>
+    <table>
+      <tr>
+        <th>type</th>
+        <th>Storage Size</th>
+        <th>Value Range</th>
+        <th>Precision</th>
+      </tr>
+      <tr>
+        <td>float</td>
+        <td>4 byte</td>
+        <td>1.2E-38 to 3.4E+38</td>
+        <td>6 decimal places</td>
+      </tr>
+      <tr>
+        <td>double</td>
+        <td>8 byte</td>
+        <td>2.3E-308 to 1.7E+308</td>
+        <td>15 decimal places</td>
+      </tr>
+      <tr>
+        <td>long double</td>
+        <td>10 byte</td>
+        <td>3.4E-4932 to 1.1E+4932</td>
+        <td>19 decimal places</td>
+      </tr>
+    </table>
+    <p class="ParaDetail">
+      The header file float.h defines macros that allow you to use these values and other details about the binary representation of real numbers in your programs. The following example prints the storage space taken by a float type and its range values:
+    </p>
+    <pre class="CodeBlock">
+      <code>
+#include <stdio.h>
+#include <float.h>
+  
+int main() {
+    printf("Storage size for float : %d \n", sizeof(float));
+    printf("Minimum float positive value: %E\n", FLT_MIN );
+    printf("Maximum float positive value: %E\n", FLT_MAX );
+    printf("Precision value: %d\n", FLT_DIG );
+    
+    return 0;
+}
+      </code>
+    </pre>
+    <p class="ParaDetail">
+      When you compile and execute the above program, it produces the following result on Linux:
+    </p>
+    <pre class="CodeBLock">
+      <code>
+Storage size for float : 4
+Minimum float positive value: 1.175494E-38
+Maximum float positive value: 3.402823E+38
+Precision value: 6
+      </code>
+    </pre>
+    <div class="SubTopic">
+      The void Type
+    </div>
+    <p class="ParaDetail">
+      The void type specifies that no value is available. It is used in three kinds of situations:
+    </p>
+    <table>
+      <tr>
+        <th>Sr.No</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Function returns as void</td>
+        <td>There are various functions in C which do not return any value or you can say they return void. A function with no return value has the return type as void. For example, void exit (int status);</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Function arguments as void</td>
+        <td>There are various functions in C which do not accept any parameter. A function with no parameter can accept a void. For example, int rand(void);</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Pointers to void</td>
+        <td>A pointer of type void * represents the address of an object, but not its type. For example, a memory allocation function void *malloc( size_t size ); returns a pointer to void which can be casted to any data type.</td>
+      </tr>
+    </table>
+  </body>
+</html>

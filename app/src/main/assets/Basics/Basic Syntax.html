@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Syntax</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <!-- <div class="MainTopic">Basic Syntax</div> -->
+    <p class="ParaDetail">
+      You have seen the basic structure of a C program, so it will be easy to
+      understand other basic building blocks of the C programming language.
+    </p>
+    <div class="SubTopic">Tokens in C</div>
+    <p class="ParaDetail">
+      A C program consists of various tokens and a token is either a keyword, an
+      identifier, a constant, a string literal, or a symbol. For example, the
+      following C statement consists of five tokens:
+    </p>
+    <pre class="CodeBlock">
+            <code> 
+printf("Hello, World! \n");                     
+            </code>
+    </pre>
+    <p class="ParaDetail">The individual tokens are:</p>
+    <pre class="CodeBlock">
+            <code> 
+printf
+(
+"Hello, World! \n"
+)
+;                     
+            </code>
+    </pre>
+    <div class="SubTopic">Semicolons</div>
+    <p class="ParaDetail">
+      In a C program, the semicolon is a statement terminator. That is, each
+      individual statement must be ended with a semicolon. It indicates the end
+      of one logical entity. <br />
+      Given below are two different statements :
+    </p>
+    <pre class="CodeBlock">
+    <code>
+printf("Hello, World! \n");
+return 0;      
+    </code>
+    </pre>
+    <div class="SubTopic">Comments</div>
+    <p class="ParaDetail">
+      Comments are like helping text in your C program and they are ignored by
+      the compiler. They start with /* and terminate with the characters */ as
+      shown below:
+    </p>
+    <pre class="CodeBlock">
+      <code>
+/* my first program in C */
+      </code>
+    </pre>
+    <p class="ParaDetail">
+      You cannot have comments within comments and they do not occur within a
+      string or character literals.
+    </p>
+    <div class="SubTopic">Identifiers</div>
+    <p class="ParaDetail">
+      A C identifier is a name used to identify a variable, function, or any
+      other user-defined item. An identifier starts with a letter A to Z, a to
+      z, or an underscore '_' followed by zero or more letters, underscores, and
+      digits (0 to 9).<br />
+      C does not allow punctuation characters such as @, $, and % within
+      identifiers. C is a case-sensitive programming language. Thus, Manpower
+      and manpower are two different identifiers in C. Here are some examples of
+      acceptable identifiers:
+    </p>
+    <pre class="CodeBlock">
+      <code>
+mohd       zara    abc   move_name  a_123
+myname50   _temp   j     a23b9      retVal
+      </code>
+    </pre>
+    <div class="SubTopic">Keywords</div>
+    <p class="ParaDetail">
+      The following list shows the reserved words in C. These reserved words may
+      not be used as constants or variables or any other identifier names.
+    </p>
+    <pre class="CodeBlock">
+      <code>
+auto 	else 	long 	switch
+break 	enum 	typedef register
+case 	extern 	return 	union
+char 	float 	short 	unsigned
+const 	for 	signed 	void
+goto 	sizeof 	double  continue
+if 	static 	while   default
+do 	int 	struct 	_Packed 			
+      </code>
+    </pre>
+    <div class="SubTopic">Whitespace in C</div>
+    <p class="ParaDetail">
+      A line containing only whitespace, possibly with a comment, is known as a
+      blank line, and a C compiler totally ignores it.<br />
+      Whitespace is the term used in C to describe blanks, tabs, newline
+      characters and comments. Whitespace separates one part of a statement from
+      another and enables the compiler to identify where one element in a
+      statement, such as int, ends and the next element begins. Therefore, in
+      the following statement:
+    </p>
+    <pre class="CodeBlock">
+      <code>
+int age;        
+      </code>
+    </pre>
+    <p class="ParaDetail">
+      there must be at least one whitespace character (usually a space) between
+      int and age for the compiler to be able to distinguish them. On the other
+      hand, in the following statement:
+    </p>
+    <pre class="CodeBlock">
+      <code>
+fruit = apples + oranges;   // get the total fruit
+      </code>
+    </pre>
+    <p class="ParaDetail">
+      no whitespace characters are necessary between fruit and =, or between =
+      and apples, although you are free to include some if you wish to increase
+      readability.
+    </p>
+  </body>
+</html>

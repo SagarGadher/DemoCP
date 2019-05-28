@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C Program to check if number is odd or even</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+/* Program to check whether the input integer number 
+ * is even or odd using the modulus operator (%)
+ */
+#include&lt;stdio.h&gt;
+int main()
+{
+   // This variable is to store the input number 
+   int num;
+ 
+   printf("Enter an integer: ");
+   scanf("%d",&num);
+ 
+   // Modulus (%) returns remainder
+   if ( num%2 == 0 )
+      printf("%d is an even number", num);
+   else
+      printf("%d is an odd number", num);
+ 
+   return 0;
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output-1:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter an integer number: 89
+89 is an odd number
+            </code>
+        </pre>
+        <p class="ParaDetail">Output-2:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter an integer number: 66
+66 is an odd number
+            </code>
+        </pre>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C program to check whether the given number is positive or negative</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+
+void main()
+{
+    int num;
+    
+    printf("Enter a number: \n");
+    scanf("%d", &num);
+    if (num > 0)
+        printf("%d is a positive number \n", num);
+    else if (num < 0)
+        printf("%d is a negative number \n", num);
+    else
+        printf("0 is neither positive nor negative");
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output 1:
+            Enter a number:
+            0
+            0 is neither positive nor negative</p>
+    <pre class="CodeBlock">
+            <code>
+                    Enter a number:
+                    0
+                    0 is neither positive nor negative
+            </code>
+        </pre>
+        <p class="ParaDetail">Output 2:</p>
+        <pre class="CodeBlock">
+                <code>
+Enter a number:
+-3
+-3 is a negative number
+                </code>
+            </pre>
+            <p class="ParaDetail">Output 3:</p>
+            <pre class="CodeBlock">
+                    <code>
+Enter a number:
+100
+100 is a positive number
+                    </code>
+                </pre>
+  </body>
+</html>

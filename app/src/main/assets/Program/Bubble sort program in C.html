@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bubble sort program in C</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+
+int main(){
+
+    int count, temp, i, j, number[30];
+ 
+    printf("How many numbers are u going to enter?: ");
+    scanf("%d",&count);
+ 
+    printf("Enter %d numbers: ",count);
+ 
+    for(i=0;i&lt;count;i++)
+    scanf("%d",&number[i]);
+ 
+    /* This is the main logic of bubble sort algorithm 
+     */
+    for(i=count-2;i>=0;i--){
+       for(j=0;j<=i;j++){
+         if(number[j]>number[j+1]){
+            temp=number[j];
+            number[j]=number[j+1];
+            number[j+1]=temp;
+         }
+       }
+    }
+ 
+    printf("Sorted elements: ");
+    for(i=0;i&lt;count;i++)
+       printf(" %d",number[i]);
+ 
+    return 0;
+ }
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+How many numbers are u going to enter?: 6
+Enter 6 numbers: 66 0 12 89 65 99
+Sorted elements: 0 12 65 66 89 99
+            </code>
+        </pre>
+  </body>
+</html>

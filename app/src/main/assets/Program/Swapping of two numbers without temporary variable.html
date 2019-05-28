@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Swapping of two numbers without temporary variable</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+int main()
+{
+   int a, b;
+   
+   printf("Input two integers (a & b) to swap\n");
+   scanf("%d%d", &a, &b);
+   
+   a = a + b;
+   b = a - b;
+   a = a - b;
+ 
+   printf("a = %d\nb = %d\n",a,b);
+   return 0;
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter the value xand y
+4
+5
+Before Swapping
+x = 4
+y = 5
+After Swapping
+x = 5
+y = 4
+            </code>
+        </pre>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Binary to decimal conversion</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+int binaryToDecimal(long binarynum)
+{
+    int decimalnum = 0, temp = 0, remainder;
+    while (binarynum!=0)
+    {
+        remainder = binarynum % 10;
+        binarynum = binarynum / 10;
+        decimalnum = decimalnum + remainder*pow(2,temp);
+        temp++;
+    }
+    return decimalnum;
+}
+
+int main()
+{
+    long binarynum;
+    printf("Enter a binary number: ");
+    scanf("%ld", &binarynum);
+
+    printf("Equivalent decimal number is: %d", binaryToDecimal(binarynum));
+    return 0;
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter a binary number: 1010111
+Equivalent decimal number is: 87
+            </code>
+        </pre>
+  </body>
+</html>

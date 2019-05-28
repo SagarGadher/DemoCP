@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Program to convert string from upper case to lower case</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+int main(){
+    /* This array can hold a string of upto 25
+    * chars, if you are going to enter larger string
+    * then increase the array size accordingly
+    */
+    char str[25];
+    int i;
+    printf("Enter the string: ");
+    scanf("%s",str);
+    
+    for(i=0;i<=strlen(str);i++){
+        if(str[i]>=65&&str[i]<=90)
+            str[i]=str[i]+32;
+    }
+    printf("\nLower Case String is: %s",str);
+    return 0;
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter the string : Hello World !
+Lower Case String is : hello world.
+            </code>
+        </pre>
+  </body>
+</html>

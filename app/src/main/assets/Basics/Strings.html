@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Strings</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <!-- <div class="MainTopic">Strings</div> -->
+    <p class="ParaDetail">
+      Strings are actually one-dimensional array of characters terminated by a
+      null character '\0'. Thus a null-terminated string contains the characters
+      that comprise the string followed by a null.<br /><br />
+      The following declaration and initialization create a string consisting of
+      the word "Hello". To hold the null character at the end of the array, the
+      size of the character array containing the string is one more than the
+      number of characters in the word "Hello."
+    </p>
+    <pre class="CodeBlock">
+            <code>
+char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+            </code>
+    </pre>
+    <p class="ParaDetail">
+      If you follow the rule of array initialization then you can write the
+      above statement as follows :
+    </p>
+    <pre class="CodeBlock">
+            <code>
+char greeting[] = "Hello";
+            </code>
+    </pre>
+    <p class="ParaDetail">
+      Following is the memory presentation of the above defined string in C/C++
+      :
+    </p>
+    <img src="Images/string_representation.jpg" style="width:90%" />
+    <p class="ParaDetail">Actually, you do not place the null character at the end of a string constant. The C compiler automatically places the '\0' at the end of the string when it initializes the array. Let us try to print the above mentioned string :</p>
+    <pre class="CodeBlock">
+            <code>                    
+#include <stdio.h>
+
+int main () {
+
+    char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+    printf("Greeting message: %s\n", greeting );
+    return 0;
+}
+            </code>
+    </pre>
+    <p class="ParaDetail">When the above code is compiled and executed, it produces the following result :</p>
+    <pre class="CodeBlock">
+            <code>
+Greeting message: Hello
+            </code>
+    </pre>
+    <p class="ParaDetail">C supports a wide range of functions that manipulate null-terminated strings :</p>
+    <table>
+            <tr>
+              <th>Sr.No.</th>
+              <th>Function</th>
+              <th>Purpose</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>strcpy(s1, s2);</td>
+              <td>Copies string s2 into string s1.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>strcat(s1, s2);</td>
+              <td>Concatenates string s2 onto the end of string s1.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>strlen(s1);</td>
+              <td>Returns the length of string s1.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>strcmp(s1, s2);</td>
+              <td>Returns 0 if s1 and s2 are the same; less than 0 if s1<s2; greater than 0 if s1>s2.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>strchr(s1, ch);</td>
+              <td>Returns a pointer to the first occurrence of character ch in string s1.</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>strstr(s1, s2);</td>
+              <td>Returns a pointer to the first occurrence of string s2 in string s1.</td>
+            </tr>
+        </table>    
+        <p class="ParaDetail">The following example uses some of the above-mentioned functions :</p>   
+        <pre class="CodeBlock">
+                <code>                        
+#include <stdio.h>
+#include <string.h>
+
+int main () {
+
+    char str1[12] = "Hello";
+    char str2[12] = "World";
+    char str3[12];
+    int  len ;
+
+    /* copy str1 into str3 */
+    strcpy(str3, str1);
+    printf("strcpy( str3, str1) :  %s\n", str3 );
+
+    /* concatenates str1 and str2 */
+    strcat( str1, str2);
+    printf("strcat( str1, str2):   %s\n", str1 );
+
+    /* total lenghth of str1 after concatenation */
+    len = strlen(str1);
+    printf("strlen(str1) :  %d\n", len );
+
+    return 0;
+}
+                </code>
+        </pre>
+        <p class="ParaDetail">When the above code is compiled and executed, it produces the following result :</p>   
+        <pre class="CodeBlock">
+                <code>
+strcpy( str3, str1) :  Hello
+strcat( str1, str2):   HelloWorld
+strlen(str1) :  10                        
+                </code>
+        </pre>   
+  </body>
+</html>

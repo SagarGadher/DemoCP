@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C program to display palindrome numbers in a given range</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+int main(){
+    int num, rem, reverse_num, temp, start, end;
+ 
+    printf("Enter the lower limit: ");
+    scanf("%d",&start);
+ 
+    printf("Enter the upper limit: ");
+    scanf("%d",&end);
+ 
+    printf("Palindrome numbers between %d and %d are: ",start,end);
+    for(num=start;num<=end;num++){
+       temp=num;
+       reverse_num=0;
+       while(temp){
+          rem=temp%10;
+          temp=temp/10;
+          reverse_num=reverse_num*10+rem;
+       }
+       if(num==reverse_num)
+          printf("%d ",num);
+    }
+    return 0;
+ }                    
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter The Lower Limit :150
+Enter The Upper Limit :200
+Palindrome numbers between 150 and 200 are : 151 161 171 181 191
+            </code>
+        </pre>
+  </body>
+</html>

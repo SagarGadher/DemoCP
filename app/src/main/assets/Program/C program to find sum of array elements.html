@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C program to find sum of array elements</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+int main()
+{
+   int array[] = {1,2,3,4,5,6,7};
+   int sum;
+   sum = sum_array_elements(array,6);
+   printf("\nSum of array elements is:%d",sum);
+   return 0;
+}
+int sum_array_elements( int arr[], int n ) {
+   if (n < 0) {
+     //base case:
+     return 0;
+   } else{
+     //Recursion: calling itself
+     return arr[n] + sum_array_elements(arr, n-1);
+    }
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+Sum of array elements is:28
+            </code>
+        </pre>
+  </body>
+</html>

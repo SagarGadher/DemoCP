@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Input & Output</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <!-- <div class="MainTopic">Input & Output</div> -->
+    <p class="ParaDetail">
+      When we say Input, it means to feed some data into a program. An input can
+      be given in the form of a file or from the command line. C programming
+      provides a set of built-in functions to read the given input and feed it
+      to the program as per requirement.<br /><br />
+      When we say Output, it means to display some data on screen, printer, or
+      in any file. C programming provides a set of built-in functions to output
+      the data on the computer screen as well as to save it in text or binary
+      files.
+    </p>
+    <div class="SubTopic">The Standard Files</div>
+    <p class="ParaDetail">
+      C programming treats all the devices as files. So devices such as the
+      display are addressed in the same way as files and the following three
+      files are automatically opened when a program executes to provide access
+      to the keyboard and screen.
+    </p>
+    <table>
+      <tr>
+        <th>Standard File</th>
+        <th>File Pointer</th>
+        <th>Device</th>
+      </tr>
+      <tr>
+        <td>Standard Input</td>
+        <td>stdin</td>
+        <td>keyboard</td>
+      </tr>
+      <tr>
+        <td>Standard Output</td>
+        <td>stdout</td>
+        <td>Screen</td>
+      </tr>
+      <tr>
+        <td>Standard error</td>
+        <td>stderr</td>
+        <td>Your screen</td>
+      </tr>
+    </table>
+
+    <p class="ParaDetail">
+      The file pointers are the means to access the file for reading and writing
+      purpose. This section explains how to read values from the screen and how
+      to print the result on the screen.
+    </p>
+    <div class="SubTopic">The getchar() and putchar() Functions</div>
+    <p class="ParaDetail">
+      The int getchar(void) function reads the next available character from the
+      screen and returns it as an integer. This function reads only single
+      character at a time. You can use this method in the loop in case you want
+      to read more than one character from the screen.<br /><br />
+      The int putchar(int c) function puts the passed character on the screen
+      and returns the same character. This function puts only single character
+      at a time. You can use this method in the loop in case you want to display
+      more than one character on the screen. Check the following example :
+    </p>
+    <pre class="CodeBlock">
+            <code>
+#include <stdio.h>
+int main( ) {
+
+    int c;
+
+    printf( "Enter a value :");
+    c = getchar( );
+
+    printf( "\nYou entered: ");
+    putchar( c );
+
+    return 0;
+}
+            </code>
+    </pre>
+    <p class="ParaDetail">When the above code is compiled and executed, it waits for you to input some text. When you enter a text and press enter, then the program proceeds and reads only a single character and displays it as follows :</p>
+    <pre class="CodeBlock">
+            <code>
+$./a.out
+Enter a value : this is test
+You entered: t
+            </code>
+    </pre>
+    <div class="SubTopic">The gets() and puts() Functions</div>
+    <p class="ParaDetail">The char *gets(char *s) function reads a line from stdin into the buffer pointed to by s until either a terminating newline or EOF (End of File).
+
+            The int puts(const char *s) function writes the string 's' and 'a' trailing newline to stdout.
+            
+            <strong>NOTE:</strong>Though it has been deprecated to use gets() function, Instead of using gets, you want to use fgets().</p>
+            <pre class="CodeBlock">
+                    <code>
+#include <stdio.h>
+int main( ) {
+
+    char str[100];
+
+    printf( "Enter a value :");
+    gets( str );
+
+    printf( "\nYou entered: ");
+    puts( str );
+
+    return 0;
+}
+                    </code>
+            </pre>
+            <p class="ParaDetail">When the above code is compiled and executed, it waits for you to input some text. When you enter a text and press enter, then the program proceeds and reads the complete line till end, and displays it as follows :</p>
+            <pre class="CodeBlock">
+                    <code>
+$./a.out
+Enter a value : this is test
+You entered: this is test
+                    </code>
+            </pre>
+            <div class="SubTopic">The scanf() and printf() Functions</div>
+            <p class="ParaDetail">The int scanf(const char *format, ...) function reads the input from the standard input stream stdin and scans that input according to the format provided.<br/><br/>
+                    The int printf(const char *format, ...) function writes the output to the standard output stream stdout and produces the output according to the format provided.<br/><br/>
+                    The format can be a simple constant string, but you can specify %s, %d, %c, %f, etc., to print or read strings, integer, character or float respectively. There are many other formatting options available which can be used based on requirements. Let us now proceed with a simple example to understand the concepts better :</p>
+            <pre class="CodeBlock">
+                    <code>
+#include <stdio.h>
+int main( ) {
+
+    char str[100];
+    int i;
+
+    printf( "Enter a value :");
+    scanf("%s %d", str, &i);
+
+    printf( "\nYou entered: %s %d ", str, i);
+
+    return 0;
+}
+                    </code>
+            </pre>
+            <p class="ParaDetail">When the above code is compiled and executed, it waits for you to input some text. When you enter a text and press enter, then program proceeds and reads the input and displays it as follows :</p>
+            <pre class="CodeBlock">
+                    <code>
+$./a.out
+Enter a value : seven 7
+You entered: seven 7
+                    </code>
+            </pre>
+            <p class="ParaDetail">Here, it should be noted that scanf() expects input in the same format as you provided %s and %d, which means you have to provide valid inputs like "string integer". If you provide "string string" or "integer integer", then it will be assumed as wrong input. Secondly, while reading a string, scanf() stops reading as soon as it encounters a space, so "this is test" are three strings for scanf().</p>
+  </body>
+</html>

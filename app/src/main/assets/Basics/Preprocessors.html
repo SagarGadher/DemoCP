@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Preprocessors</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+</head>
+
+<body class="AllBody">
+    <!-- <div class="MainTopic">Preprocessors</div> -->
+    <p class="ParaDetail">
+        The C Preprocessor is not a part of the compiler, but is a separate step
+        in the compilation process. In simple terms, a C Preprocessor is just a
+        text substitution tool and it instructs the compiler to do required
+        pre-processing before the actual compilation. We'll refer to the C
+        Preprocessor as CPP.<br /><br />
+        All preprocessor commands begin with a hash symbol (#). It must be the
+        first nonblank character, and for readability, a preprocessor directive
+        should begin in the first column. The following section lists down all the
+        important preprocessor directives :
+    </p>
+    <table>
+        <tr>
+            <th>Sr.No.</th>
+            <th>Directive</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>#define</td>
+            <td>Substitutes a preprocessor macro.</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>#include</td>
+            <td>Inserts a particular header from another file.</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>#undef</td>
+            <td>Undefines a preprocessor macro.</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>#ifdef</td>
+            <td>Returns true if this macro is defined.</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>#ifndef</td>
+            <td>Returns true if this macro is not defined.</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>#if</td>
+            <td>Tests if a compile time condition is true.</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>#else</td>
+            <td>The alternative for #if.</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>#elif</td>
+            <td>#else and #if in one statement.</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>#endif</td>
+            <td>Ends preprocessor conditional.</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>#error</td>
+            <td>Prints error message on stderr.</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>#pragma</td>
+            <td>
+                Issues special commands to the compiler, using a standardized method.
+            </td>
+        </tr>
+    </table>
+
+    <div class="SubTopic">Preprocessors Examples</div>
+    <p class="ParaDetail">
+        Analyze the following examples to understand various directives.
+    </p>
+    <pre class="CodeBlock">
+		<code>
+#define MAX_ARRAY_LENGTH 20
+		</code>
+</pre>
+    <p class="ParaDetail">
+        This directive tells the CPP to replace instances of MAX_ARRAY_LENGTH with
+        20. Use #define for constants to increase readability.
+    </p>
+    <pre class="CodeBlock">
+    <code>
+#include <stdio.h>
+#include "myheader.h"
+    </code>
+</pre>
+    <p class="ParaDetail">These directives tell the CPP to get stdio.h from System Libraries and add the text to the
+        current source file. The next line tells CPP to get myheader.h from the local directory and add the content to
+        the current source file.</p>
+    <pre class="CodeBlock">
+    <code>
+#undef  FILE_SIZE
+#define FILE_SIZE 42
+    </code>
+</pre>
+    <p class="ParaDetail">It tells the CPP to undefine existing FILE_SIZE and define it as 42.</p>
+    <pre class="CodeBlock">
+    <code>
+#ifndef MESSAGE
+#define MESSAGE "You wish!"
+#endif
+    </code>
+</pre>
+    <p class="ParaDetail">It tells the CPP to define MESSAGE only if MESSAGE isn't already defined.</p>
+    <pre class="CodeBlock">
+    <code>
+#ifdef DEBUG
+/* Your debugging statements here */
+#endif
+    </code>
+</pre>
+    <p class="ParaDetail">It tells the CPP to process the statements enclosed if DEBUG is defined. This is useful if
+        you pass the -DDEBUG flag to the gcc compiler at the time of compilation. This will define DEBUG, so you can
+        turn debugging on and off on the fly during compilation.</p>
+    <div class="SubTopic">Predefined Macros</div>
+    <p class="ParaDetail">ANSI C defines a number of macros. Although each one is available for use in programming, the
+        predefined macros should not be directly modified.</p>
+    <table>
+        <tr>
+            <th>Sr.No.</th>
+            <th>Macro</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>_DATE_</td>
+            <td>The current date as a character literal in "MMM DD YYYY" format.</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>_TIME_</td>
+            <td>The current time as a character literal in "HH:MM:SS" format.</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>_FILE_</td>
+            <td>This contains the current filename as a string literal.</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>_LINE_</td>
+            <td>This contains the current line number as a decimal constant.</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>_STDC_</td>
+            <td>Defined as 1 when the compiler complies with the ANSI standard.</td>
+        </tr>
+    </table>
+    <p class="ParaDetail">Let's try the following example :</p>
+    <pre class="CodeBlock">
+                <code>
+#include <stdio.h>
+
+int main() {
+
+    printf("File :%s\n", __FILE__ );
+    printf("Date :%s\n", __DATE__ );
+    printf("Time :%s\n", __TIME__ );
+    printf("Line :%d\n", __LINE__ );
+    printf("ANSI :%d\n", __STDC__ );
+
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">When the above code in a file test.c is compiled and executed, it produces the following
+        result :</p>
+    <pre class="CodeBlock">
+                <code>
+File :test.c
+Date :Jun 2 2012
+Time :03:36:24
+Line :8
+ANSI :1
+                </code>
+        </pre>
+    <div class="SubTopic">Preprocessor Operators</div>
+    <p class="ParaDetail">The C preprocessor offers the following operators to help create macros :<br /><br />
+        <strong>Macro Continuation (\) Operator</strong>
+        A macro is normally confined to a single line. The macro continuation operator (\) is used to continue a macro
+        that is too long for a single line. For example :</p>
+    <pre class="CodeBlock">
+                        <code>
+#define  message_for(a, b)  \
+printf(#a " and " #b ": We love you!\n")
+                        </code>
+                </pre>
+    <p class="ParaDetail"><strong>The Stringize (#) Operator</strong><br /><br />
+        The stringize or number-sign operator ( '#' ), when used within a macro definition, converts a macro parameter
+        into a string constant. This operator may be used only in a macro having a specified argument or parameter
+        list. For example :</p>
+    <pre class="CodeBlock">
+            <code>
+#include <stdio.h>
+
+#define  message_for(a, b)  \
+    printf(#a " and " #b ": We love you!\n")
+
+int main(void) {
+    message_for(Carole, Debra);
+    return 0;
+}
+            </code>
+    </pre>
+    <p class="ParaDetail">When the above code is compiled and executed, it produces the following result :</p>
+    <pre class="CodeBlock">
+            <code>
+Carole and Debra: We love you!
+            </code>
+    </pre>
+    <p class="ParaDetail"><strong>The Token Pasting (##) Operator</strong><br /><br />
+        The token-pasting operator (##) within a macro definition combines two arguments. It permits two separate
+        tokens in the macro definition to be joined into a single token. For example :</p>
+    <pre class="CodeBlock">
+            <code>
+#include <stdio.h>
+
+#define tokenpaster(n) printf ("token" #n " = %d", token##n)
+
+int main(void) {
+    int token34 = 40;
+    tokenpaster(34);
+    return 0;
+}
+            </code>
+    </pre>
+    <p class="ParaDetail">When the above code is compiled and executed, it produces the following result :</p>
+    <pre class="CodeBlock">
+            <code>
+token34 = 40
+            </code>
+    </pre>
+    <p class="ParaDetail">It happened so because this example results in the following actual output from the
+        preprocessor :</p>
+    <pre class="CodeBlock">
+            <code>
+printf ("token34 = %d", token34);
+            </code>
+    </pre>
+    <p class="ParaDetail">This example shows the concatenation of token##n into token34 and here we have used both
+        stringize and token-pasting.<br /><br />
+        <strong>The Defined() Operator</strong><br /><br />
+        The preprocessor defined operator is used in constant expressions to determine if an identifier is defined
+        using #define. If the specified identifier is defined, the value is true (non-zero). If the symbol is not
+        defined, the value is false (zero). The defined operator is specified as follows :</p>
+    <pre class="CodeBlock">
+                    <code>
+#include <stdio.h>
+
+#if !defined (MESSAGE)
+    #define MESSAGE "You wish!"
+#endif
+
+int main(void) {
+    printf("Here is the message: %s\n", MESSAGE);  
+    return 0;
+}
+                    </code>
+            </pre>
+    <p class="ParaDetail">When the above code is compiled and executed, it produces the following result :</p>
+    <pre class="CodeBlock">
+                    <code>
+Here is the message: You wish!
+                    </code>
+            </pre>
+    <div class="SubTopic">Parameterized Macros</div>
+    <p class="ParaDetail">One of the powerful functions of the CPP is the ability to simulate functions using
+        parameterized macros. For example, we might have some code to square a number as follows :</p>
+    <pre class="CodeBlock">
+                    <code>
+int square(int x) {
+return x * x;
+}
+                    </code>
+            </pre>
+    <p class="ParaDetail">We can rewrite above the code using a macro as follows :</p>
+    <pre class="CodeBlock">
+                    <code>
+#define square(x) ((x) * (x))
+                    </code>
+            </pre>
+    <p class="ParaDetail">Macros with arguments must be defined using the #define directive before they can be used.
+        The argument list is enclosed in parentheses and must immediately follow the macro name. Spaces are not allowed
+        between the macro name and open parenthesis. For example :</p>
+    <pre class="CodeBlock">
+                    <code>
+#include <stdio.h>
+
+#define MAX(x,y) ((x) > (y) ? (x) : (y))
+
+int main(void) {
+    printf("Max between 20 and 10 is %d\n", MAX(10, 20));  
+    return 0;
+}
+                    </code>
+            </pre>
+    <p class="ParaDetail"></p>
+    <pre class="CodeBlock">
+                    <code>
+                    </code>
+            </pre>
+    <p class="ParaDetail">When the above code is compiled and executed, it produces the following result :</p>
+    <pre class="CodeBlock">
+                    <code>
+            Max between 20 and 10 is 20
+                    </code>
+            </pre>
+</body>
+
+</html>

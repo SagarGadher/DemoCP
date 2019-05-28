@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Find the value of nPr for given value of n & r<!DOCTYPE html></title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+void main()
+{
+    int n, r, npr_var;
+ 
+    printf("Enter the value of n:");
+    scanf("%d", &n);
+    printf("\nEnter the value of r:");
+    scanf("%d", &r);
+    
+    /* nPr is also known as P(n,r), the formula is:
+     * P(n,r) = n! / (n - r)! For 0 <= r <= n.
+     */
+    npr_var = fact(n) / fact(n - r);
+    printf("\nThe value of P(%d,%d) is: %d",n,r,npr_var);
+}
+// Function for calculating factorial
+int fact(int num)
+{
+    int k = 1, i;
+    // factorial of 0 is 1
+    if (num == 0)
+    {
+        return(k);
+    }
+    else
+    {
+        for (i = 1; i <= num; i++)
+    {
+            k = k * i;
+	}
+    }
+    return(k);
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter the value of n:
+5 
+Enter the value of r:
+2
+The value of P(6,2) is: 30                
+            </code>
+        </pre>
+  </body>
+</html>

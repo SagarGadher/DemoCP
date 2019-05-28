@@ -1,0 +1,69 @@
+.AllBody {
+  text-align: justify-all;
+  padding: 4px 1px 4px 1px;
+}
+.MainTopic {
+  font-size: 26px;
+  font-family: monospace;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  background-color: #32A6FF;
+  padding: 8px;
+  border-radius:4px;
+  margin:0px;
+}
+.SubTopic {
+  font-size: 22px;
+  font-family: monospace;
+  font-weight: 500;
+  color: #2d2d2d;
+  border-width: 2px 0px 2px 0px;
+  border-style: dashed;
+  background-color: #f1f2f7;
+}
+.ParaDetail {
+  font-size: 18px;
+  font-family: sans-serif;
+  text-align: justify;
+}
+.KeyPoint {
+  font-size: 18px;
+  background-color: #ffffd7;
+  font-family: sans-serif;
+  text-align: justify;
+}
+.KeyPointScroll {
+  overflow: scroll;
+  background-color: #ffffd7;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.CodeBlock {
+  padding: 0px 2px 0px 8px;
+  overflow: scroll;
+  background-color: #228368;
+  color: white;
+  border-radius: 4px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+th {
+  background-color: #dddddd;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
+}

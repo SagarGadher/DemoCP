@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C Program to check whether an alphabet is vowel or consonant</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+int main()
+{
+    char ch;
+    bool isVowel = false;
+
+    printf("Enter an alphabet: ");
+    scanf("%c",&ch);
+
+    if(ch=='a'||ch=='A'||ch=='e'||ch=='E'||ch=='i'||ch=='I'
+            ||ch=='o'||ch=='O'||ch=='u'||ch=='U')
+    {
+        isVowel = true;
+
+    }
+    if (isVowel == true)
+        printf("%c is a Vowel", ch);
+    else
+        printf("%c is a Consonant", ch);
+    return 0;
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter an alphabet: E
+E is a Vowel
+            </code>
+        </pre>
+  </body>
+</html>

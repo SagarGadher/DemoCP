@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C Program to check leap year</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+int main()
+{
+    int y;
+
+    printf("Enter year: ");
+    scanf("%d",&y);
+
+    if(y % 4 == 0)
+    {
+        //Nested if else
+        if( y % 100 == 0)
+        {
+            if ( y % 400 == 0)
+                printf("%d is a Leap Year", y);
+            else
+                printf("%d is not a Leap Year", y);
+        }
+        else
+            printf("%d is a Leap Year", y );
+    }
+    else
+        printf("%d is not a Leap Year", y);
+
+    return 0;
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter year: 1991
+1991 is not a Leap Year
+            </code>
+        </pre>
+  </body>
+</html>

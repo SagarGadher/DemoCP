@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C Program to find sum of first n natural numbers</title>
+    <link rel="stylesheet" type="text/css" href="CSS/pre_font.css" />
+  </head>
+  <body class="AllBody">
+    <pre class="CodeBlock">
+                <code>
+#include&lt;stdio.h&gt;
+int main()
+{
+    int n, count, sum = 0;
+
+    printf("Enter the value of n(positive integer): ");
+    scanf("%d",&n);
+
+    for(count=1; count <= n; count++)
+    {
+        sum = sum + count;
+    }
+
+    printf("Sum of first %d natural numbers is: %d",n, sum);
+
+    return 0;
+}
+                </code>
+        </pre>
+    <p class="ParaDetail">Output:</p>
+    <pre class="CodeBlock">
+            <code>
+Enter the value of n(positive integer): 6
+Sum of first 6 natural numbers is: 21              
+            </code>
+        </pre>
+  </body>
+</html>
